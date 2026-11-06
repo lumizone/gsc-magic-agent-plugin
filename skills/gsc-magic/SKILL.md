@@ -2,7 +2,7 @@
 name: gsc-magic
 description: Answer SEO and search-traffic questions from the user's own Google Search Console, Bing Webmaster Tools, Google Analytics 4, IndexNow and Core Web Vitals data through the GSC Magic MCP server. Use when the user asks about clicks, impressions, rankings, queries, pages, traffic drops, quick wins, content decay, keyword cannibalization, CTR, indexing, sitemaps, Core Web Vitals, AI referrals in GA4, or Google vs Bing.
 license: MIT
-compatibility: Needs the gsc-magic MCP server (from this package, which needs Node.js 20.18.1+ for npx, or added with hermes mcp add) and a GSC Magic account at https://app.gscmagic.com.
+compatibility: Needs the gsc-magic MCP server (from this package, which needs Node.js 20.18.1+ for npx, or added natively with hermes mcp add / openclaw mcp set) and a GSC Magic account at https://app.gscmagic.com.
 metadata:
   homepage: https://gscmagic.com
   docs: https://gscmagic.com/docs
@@ -11,7 +11,7 @@ metadata:
 # GSC Magic
 
 GSC Magic is a hosted MCP server. Its tools read the user's own search data; nothing is scraped or estimated.
-In Hermes the tools are registered with the server prefix, for example `mcp__gsc-magic__gsc_list_sites`;
+Agents register the tools with a server prefix (in Hermes, for example, `mcp__gsc-magic__gsc_list_sites`);
 this skill uses the bare names.
 
 ## Before the first call

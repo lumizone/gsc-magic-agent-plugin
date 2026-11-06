@@ -1,10 +1,11 @@
-# GSC Magic plugin for Hermes Agent
+# GSC Magic plugin for Hermes Agent and OpenClaw
 
 ![GSC Magic](assets/banner.png)
 
 Your own Google Search Console, Bing Webmaster Tools, Google Analytics 4, IndexNow and Core Web Vitals
-data inside [Hermes Agent](https://github.com/NousResearch/hermes-agent), through the hosted
-[GSC Magic](https://gscmagic.com) MCP server.
+data inside [Hermes Agent](https://github.com/NousResearch/hermes-agent) or
+[OpenClaw](https://github.com/openclaw/openclaw), through the hosted [GSC Magic](https://gscmagic.com)
+MCP server. OpenClaw users: see [OpenClaw](#openclaw) below.
 
 Ask things like:
 
@@ -75,6 +76,36 @@ mcp_servers:
     headers:
       Authorization: "Bearer gsm_..."   # create one at https://app.gscmagic.com/connect
 ```
+
+## OpenClaw
+
+OpenClaw reads this package as an Agent Plugins bundle: it loads the `gsc-magic` skill and the
+`gsc-magic` MCP server from `mcp.json`.
+
+```bash
+openclaw plugins install clawhub:gsc-magic
+```
+
+OpenClaw gives a new MCP connection about 30 seconds and a tool call 60 seconds by default. The
+browser sign-in through `mcp-remote` has to fit in the first window, and a few GSC Magic tools
+(`psi_run_audit`, `gsc_inspect_urls_batch`, `report_index_health`) can run longer than the second.
+For everyday use, let OpenClaw run the sign-in itself with a longer call timeout. A server you add
+yourself replaces the package's server of the same name, and the skill keeps working:
+
+```bash
+openclaw mcp set gsc-magic '{"url":"https://mcp.gscmagic.com/mcp","transport":"streamable-http","auth":"oauth","requestTimeoutMs":180000}'
+```
+
+```bash
+openclaw mcp login gsc-magic
+```
+
+`login` prints a link; open it, sign in to GSC Magic and allow access. On a machine without a browser,
+open the link elsewhere and finish with `openclaw mcp login gsc-magic --code <code>`.
+
+OpenClaw does not read the `untrusted` marker in `plugin.json`. Write tools still only work on paid
+GSC Magic plans with write mode turned on in the dashboard, and the skill tells the agent to ask before
+using one.
 
 ## Plans
 
