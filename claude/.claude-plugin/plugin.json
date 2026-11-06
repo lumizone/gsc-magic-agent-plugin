@@ -11,5 +11,14 @@
   "homepage": "https://gscmagic.com/integrations",
   "repository": "https://github.com/lumizone/gsc-magic-agent-plugin",
   "license": "MIT",
-  "keywords": ["seo", "google-search-console", "bing-webmaster-tools", "google-analytics", "ga4", "indexnow", "core-web-vitals"]
+  "privacyPolicyUrl": "https://app.gscmagic.com/privacy",
+  "keywords": [
+    "seo",
+    "google-search-console",
+    "bing-webmaster-tools",
+    "google-analytics",
+    "ga4",
+    "indexnow",
+    "core-web-vitals"
+  ]
 }
