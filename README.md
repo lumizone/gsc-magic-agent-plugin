@@ -30,6 +30,8 @@ This is an [Agent Plugins v1](https://agent-plugins.org) package with configurat
   `https://mcp.gscmagic.com/mcp` with OAuth sign-in.
 - `skills/gsc-magic/SKILL.md`: how to use the tools well (start with discovery, prefer the reports,
   respect write mode and data lag).
+- `.claude-plugin/plugin.json` and `.mcp.json`: the same plugin and server in the Claude plugin
+  layout, which ClawHub and OpenClaw read.
 
 ## Install
 
@@ -79,8 +81,8 @@ mcp_servers:
 
 ## OpenClaw
 
-OpenClaw reads this package as an Agent Plugins bundle: it loads the `gsc-magic` skill and the
-`gsc-magic` MCP server from `mcp.json`.
+OpenClaw reads this package as a Claude-layout bundle: it loads the `gsc-magic` skill and the
+`gsc-magic` MCP server from `.mcp.json`.
 
 ```bash
 openclaw plugins install clawhub:gsc-magic

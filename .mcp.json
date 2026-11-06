@@ -1,0 +1,18 @@
+{
+  "mcpServers": {
+    "gsc-magic": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "mcp-remote@0.15.2",
+        "https://mcp.gscmagic.com/mcp",
+        "--transport",
+        "http-only",
+        "--auth-timeout",
+        "300",
+        "--static-oauth-client-metadata",
+        "{\"client_name\":\"GSC Magic plugin\",\"token_endpoint_auth_method\":\"none\",\"grant_types\":[\"authorization_code\",\"refresh_token\"],\"response_types\":[\"code\"]}"
+      ]
+    }
+  }
+}
