@@ -1,0 +1,25 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "gsc-magic",
+  "version": "1.0.0",
+  "description": "Google Search Console, Bing Webmaster Tools, Google Analytics 4, IndexNow and Core Web Vitals in your agent through GSC Magic's hosted MCP server, with ready-made SEO reports (quick wins, traffic drops, content decay, cannibalization, index health).",
+  "author": {
+    "name": "GSC Magic",
+    "email": "contact@gscmagic.com",
+    "url": "https://gscmagic.com"
+  },
+  "homepage": "https://gscmagic.com/integrations",
+  "repository": "https://github.com/lumizone/gsc-magic-agent-plugin",
+  "license": "MIT",
+  "keywords": ["seo", "google-search-console", "bing-webmaster-tools", "google-analytics", "ga4", "indexnow", "core-web-vitals", "mcp"],
+  "extensions": {
+    "com.nousresearch.hermes": {
+      "servers": {
+        "gsc-magic": {
+          "trust": "untrusted",
+          "timeout": 180
+        }
+      }
+    }
+  }
+}
