@@ -1,0 +1,11 @@
+{
+  "name": "gsc-magic",
+  "version": "1.0.0",
+  "description": "Google Search Console, Bing Webmaster Tools, Google Analytics 4, IndexNow and Core Web Vitals in Gemini CLI through GSC Magic's hosted MCP server, with ready-made SEO reports.",
+  "mcpServers": {
+    "gsc-magic": {
+      "httpUrl": "https://mcp.gscmagic.com/mcp"
+    }
+  },
+  "contextFileName": "GEMINI.md"
+}

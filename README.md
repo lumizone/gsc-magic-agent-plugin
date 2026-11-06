@@ -91,6 +91,15 @@ mcp_servers:
       Authorization: "Bearer gsm_..."   # create one at https://app.gscmagic.com/connect
 ```
 
+## Gemini CLI
+
+`gemini-extension.json` makes this repository a Gemini CLI extension: the remote server over Streamable HTTP
+(`httpUrl`) and `GEMINI.md` as context. Gemini CLI signs in with OAuth on the first tool call.
+
+```bash
+gemini extensions install https://github.com/lumizone/gsc-magic-agent-plugin
+```
+
 ## OpenClaw
 
 OpenClaw reads this package as a Claude-layout bundle: it loads the `gsc-magic` skill and the
