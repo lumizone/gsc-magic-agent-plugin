@@ -16,8 +16,7 @@
     "com.nousresearch.hermes": {
       "servers": {
         "gsc-magic": {
-          "trust": "untrusted",
-          "timeout": 180
+          "trust": "untrusted"
         }
       }
     }

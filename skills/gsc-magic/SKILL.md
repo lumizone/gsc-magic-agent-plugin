@@ -2,7 +2,7 @@
 name: gsc-magic
 description: Answer SEO and search-traffic questions from the user's own Google Search Console, Bing Webmaster Tools, Google Analytics 4, IndexNow and Core Web Vitals data through the GSC Magic MCP server. Use when the user asks about clicks, impressions, rankings, queries, pages, traffic drops, quick wins, content decay, keyword cannibalization, CTR, indexing, sitemaps, Core Web Vitals, AI referrals in GA4, or Google vs Bing.
 license: MIT
-compatibility: Needs the gsc-magic MCP server from this package (Node.js 20+ for npx) and a GSC Magic account at https://app.gscmagic.com.
+compatibility: Needs the gsc-magic MCP server (from this package, which needs Node.js 20.18.1+ for npx, or added with hermes mcp add) and a GSC Magic account at https://app.gscmagic.com.
 metadata:
   homepage: https://gscmagic.com
   docs: https://gscmagic.com/docs
@@ -11,6 +11,8 @@ metadata:
 # GSC Magic
 
 GSC Magic is a hosted MCP server. Its tools read the user's own search data; nothing is scraped or estimated.
+In Hermes the tools are registered with the server prefix, for example `mcp__gsc-magic__gsc_list_sites`;
+this skill uses the bare names.
 
 ## Before the first call
 
@@ -46,8 +48,10 @@ GSC Magic is a hosted MCP server. Its tools read the user's own search data; not
 
 Everything is read-only unless the user turned on write mode in GSC Magic (paid plans only). Write
 tools include `gsc_submit_sitemap`, `gsc_delete_sitemap`, `gsc_add_site`, `gsc_delete_site`,
-`bing_submit_urls`, `bing_submit_sitemap` and `indexnow_submit`. Never call one without the user's
-explicit go-ahead for that exact action; Hermes also asks before each of them.
+`bing_submit_urls`, `bing_submit_sitemap`, `bing_fetch_url`, the Bing site settings tools and
+`indexnow_submit`. Never call one without the user's explicit go-ahead for that exact action. This
+package marks the server untrusted, so Hermes also asks before each of them and refuses them in
+unattended runs.
 
 ## Ready-made workflows
 

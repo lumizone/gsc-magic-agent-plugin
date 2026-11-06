@@ -42,7 +42,7 @@ Or straight from this repository:
 hermes plugins install https://github.com/lumizone/gsc-magic-agent-plugin.git --enable
 ```
 
-Requirements: Hermes Agent 0.21.6 or newer, Node.js 20 or newer with `npx` on the `PATH`, and a
+Requirements: Hermes Agent 0.21.6 or newer, Node.js 20.18.1 or newer with `npx` on the `PATH`, and a
 GSC Magic account (free plan available at https://app.gscmagic.com/login?mode=signup).
 
 ## Sign in
@@ -51,11 +51,21 @@ The first time Hermes connects to the server, `mcp-remote` opens your browser on
 page. Sign in with Google or e-mail and allow access. If this is a new account, the dashboard asks which
 Search Console properties to import; only imported properties are visible to the agent.
 
+Hermes waits about a minute for a new MCP connection. If you need longer to sign in (a new account,
+two-factor authentication), the attempt is dropped and the next use opens the sign-in page again.
+Creating the account first at https://app.gscmagic.com avoids that, and so does letting Hermes run
+the sign-in itself. Hermes's own OAuth client then replaces this package's `mcp-remote` server, and the
+skill keeps working:
+
+```bash
+hermes mcp add gsc-magic --url https://mcp.gscmagic.com/mcp --auth oauth
+```
+
 Bing data needs your Bing Webmaster API key and GA4 data needs a property linked to the site, both set
 in the dashboard under Sources (https://app.gscmagic.com/sources).
 
-On a headless machine, sign in once on a computer with a browser instead, or skip this package and
-use an access token in a header:
+On a headless machine, use an access token in a header instead (an entry in `config.yaml` replaces
+this package's server):
 
 ```yaml
 # ~/.hermes/config.yaml
@@ -89,8 +99,8 @@ Details: https://gscmagic.com/pricing
 - **Usage limits:** tool calls count toward the user's GSC Magic plan.
 - **Local process and credentials:** `npx` downloads and runs `mcp-remote@0.15.2` from npm. On first
   use it starts a local callback server on a localhost port, opens the browser, and stores the OAuth
-  tokens for GSC Magic under `~/.mcp-auth`. The sign-in wait is capped at 300 seconds, so an unattended
-  run without a stored token fails instead of hanging.
+  tokens for GSC Magic under `~/.mcp-auth`. Without a stored token, an unattended run fails when
+  Hermes's connect timeout expires (about a minute) instead of hanging.
 - **No telemetry** from this package, no bundled credentials, no background processes beyond the MCP
   server process Hermes starts, no self-updater.
 
