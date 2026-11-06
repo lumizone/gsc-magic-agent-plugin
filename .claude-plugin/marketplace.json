@@ -1,0 +1,16 @@
+{
+  "name": "gsc-magic-plugins",
+  "description": "GSC Magic plugins for Claude Code",
+  "owner": {
+    "name": "GSC Magic",
+    "email": "contact@gscmagic.com",
+    "url": "https://gscmagic.com"
+  },
+  "plugins": [
+    {
+      "name": "gsc-magic",
+      "source": "./claude",
+      "description": "Google Search Console, Bing, GA4, IndexNow and Core Web Vitals through GSC Magic's hosted MCP server, with a skill for SEO reports."
+    }
+  ]
+}

@@ -32,6 +32,18 @@ This is an [Agent Plugins v1](https://agent-plugins.org) package with configurat
   respect write mode and data lag).
 - `.claude-plugin/plugin.json` and `.mcp.json`: the same plugin and server in the Claude plugin
   layout, which ClawHub and OpenClaw read.
+- `claude/`: the plugin for Claude (claude.ai, Cowork and Claude Code). It connects to the remote server
+  directly over HTTP with Claude's own OAuth, so it needs no Node.js. `.claude-plugin/marketplace.json`
+  makes this repository a Claude Code marketplace that lists it.
+
+## Claude Code
+
+```bash
+claude plugin install gsc-magic --marketplace lumizone/gsc-magic-agent-plugin
+```
+
+Or inside a session: `/plugin install gsc-magic --marketplace lumizone/gsc-magic-agent-plugin`. Then
+run `/mcp`, choose `plugin:gsc-magic:gsc-magic` and sign in to GSC Magic. Details: [claude/README.md](claude/README.md).
 
 ## Install
 
