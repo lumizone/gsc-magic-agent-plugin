@@ -1,7 +1,8 @@
 {
   "name": "gsc-magic",
   "displayName": "GSC Magic",
-  "version": "1.0.0",
+  "icon": ".claude-plugin/icon.png",
+  "version": "1.0.1",
   "description": "Google Search Console, Bing Webmaster Tools, Google Analytics 4, IndexNow and Core Web Vitals in Claude through GSC Magic's hosted MCP server, with a skill for ready-made SEO reports (quick wins, traffic drops, content decay, cannibalization, index health).",
   "author": {
     "name": "GSC Magic",
